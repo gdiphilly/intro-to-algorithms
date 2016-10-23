@@ -4,16 +4,17 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>girldevelopit-reveal.js - The GDI HTML Presentation Framework</title>
+		<title>Intro to Algorithms - Girl Develop It Philly</title>
 
-		<meta name="description" content="Girl Develop It framework for easily creating beautiful presentations using HTML in GDI theme. Forked from Hakim El Hattab's reveal.js">
-		<meta name="author" content="Girl Develop It">
+		<meta name="description" content="Girl Develop It Philly course in Algorithms">
+		<meta name="author" content="Girl Develop It Philly">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+		<link rel="stylesheet" href="css/theme/styles.css">
 
 		<!-- For syntax highlighting -->
         <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -40,6 +41,88 @@
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
+
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+	<script type="text/javascript" src="js/viz.js"></script>
+
+	<script type="text/vnd.graphviz" id="konigsberg">
+		graph K {
+			C -- A [ label=e ];
+			C -- A [ label=d ];
+			C -- D [ label=g ];
+			A -- D [ label=c ];
+			A -- B [ label=a ];
+			A -- B [ label=b ];
+			B -- D [ label=f ];
+
+			{ rank=same; A,D }
+		}
+	</script>
+
+	<script type="text/vnd.graphviz" id="euler">
+			graph E {
+			    node[shape="point", height="0.2"];
+				edge[penwidth="2"];
+
+				1 -- 3
+				3 -- 5
+				5 -- 7
+				2 -- 4
+				4 -- 6
+				6 -- 8
+				1 -- 4
+				2 -- 3
+				5 -- 8
+				6 -- 7
+				3 -- 4
+				5 -- 6
+
+				{ rank=same; 1,3,5,7 }
+				{ rank=same; 2,4,6,8 }
+			}
+	</script>
+
+	<script type="text/vnd.graphviz" id="DFS">
+		graph D {
+			a -- b
+			a -- c
+			c -- d
+			c -- e
+			d -- f
+			d -- g
+			b -- j
+		}
+	</script>
+
+	<script type="text/vnd.graphviz" id="recurse1">
+		graph R1 {
+			a [label=""]
+			a -- F_1
+			a -- c
+			c [label=""]
+			c -- F_2
+			c -- e
+			e [label=""]
+			e -- F_3
+			e -- F_4
+		}
+	</script>
+
+	<script type="text/vnd.graphviz" id="recurse2">
+		graph R2 {
+			a [label=""]
+			a -- b
+			b [label=""]
+			b -- F_1
+			b -- F_2
+			a -- e
+			e [label=""]
+			e -- F_3
+			e -- F_4
+		}
+	</script>
 	</head>
 
 	<body>
@@ -48,343 +131,15 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-        <!-- Opening -->
+
+				<!-- Introduction -->
 				<section>
-					<h1>GDI Reveal.js</h1>
-                    <!-- <img src="img/circle-gdi-logo.png" alt="GDI Logo"/> -->
-					<h3>Girl Develop It's Framework for HTML Presentations</h3>
-					<p>
-						<small>Found at <a href ="http://github.com/girldevelopit/reveal.js">Girl Develop It reveal.js fork</a>.</small>
-					</p>
-					<p>
-						<small>Original Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
-					</p>
-				</section>
-        <!-- Compatibility-->
-				<section>
-					<h2>Heads Up</h2>
-					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-						support for CSS 3D transforms to see it in its full glory.</p>
-						
-						<p>We highly recommend using Chrome, currently, however, the latest version of Safari, mobile Safari (iPad), Firefox and IE9 will work.
-					</p>
-				</section>
-				
-				<section>
-					<h2>Works in Mobile Safari</h2>
-					<p>
-						Try it out! You can swipe through the slides and pinch your way to the overview.
-					</p>
-				</section>
-				
-				<!-- Examples of basic html based slides -->
-				<section>
-					<h2>Marvelous Unordered List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
+					<h3>Intro to Algorithms</h3>
+					<div>Slides: http://gdiphilly.github.io/intro-to-algorithms</div>
+					<img src="img/circle-gdi-logo.png" alt="Girl Develop It Philly" style='height: 300px; width: 300px; border: 0px;'>
+			<br/>
 				</section>
 
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-                
-                <section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
-                    <p>P.S. This won't work when running the slides locally unless you run reveal.js runs from a local web server.</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
-				
-				<!-- Examples of code slides-->
-				<section>
-					  <h2>But wait! We teach code</h2>
-					  <p>For HTML -- Surround your code with a div class "xml", then pre, then code.</p>
-           <pre>
-            <code>
-              &lt;ul>
-                &lt;li>No order here&lt;/li>
-                &lt;li>Or here&lt;/li>
-                &lt;li>Or here&lt;/li>
-                &lt;li>Or here&lt;/li>
-              &lt;/ul&gt;
-            </code>
-          </pre>
-				</section>
-				
-				<section>
-					  <h2>But wait! We teach code</h2>
-					  <p>We can also make code editable</p>
-					  <pre>
-					    <code contenteditable>
-                &lt;ul>
-                  &lt;li>No order here&lt;/li>
-                  &lt;li>Or here&lt;/li>
-                  &lt;li>Or here&lt;/li>
-                  &lt;li>Or here&lt;/li>
-                &lt;/ul&gt;
-              </code>
-
-            </pre>
-				</section>
-				
-				
-				<section>
-					  <h2>But wait! We teach code</h2>
-					  <p>CSS</p>
-					  <pre>
-              <code contenteditable class ="css">
-                body{
-                  background-color: #ffffff;
-                }
-              </code>
-            </pre>
-				</section>
-				
-				<section>
-					  <h2>But wait! We teach code</h2>
-					  <p>Javascript</p>
-					  <pre>
-              <code contenteditable class ="javascript">
-                function helloWorld(){
-                  var name = 'GDI';
-                  alert("Hi, " + name)
-                }
-              </code>
-            </pre>
-				</section>
-				
-				<section>
-					  <h2>But wait! We teach code</h2>
-					  <p>PHP</p>
-					  <pre>
-              <code contenteditable class ="php">
-                function helloWorld(){
-                  $name = 'GDI';
-                  echo "Hi, " . $name;
-                }
-              </code>
-            </pre>
-				</section>
-				
-				<section>
-					  <h2>But wait! We teach code</h2>
-					  <p>Ruby</p>
-					  <pre>
-              <code contenteditable class ="ruby">
-                def hello_world
-                  @name = 'GDI'
-                  puts "Hi, #{@name}"
-                end
-              </code>
-            </pre>
-				</section>
-               
-         <section>
- 					  <h2>But wait! We teach code</h2>
- 					  <p>Python</p>
- 					  <pre>
-               <code contenteditable class ="python">
-                 def hello_world():
-                   name = "GDI"
-                   print 'Hi, ' + name
-                   return
-               </code>
-             </pre>
- 				</section>
- 				
- 				 <section>
- 					  <h2>But wait! We teach code</h2>
- 					  <p>Java</p>
- 					  <pre>
-               <code contenteditable class ="java">
-                public void helloWorld(){
-                  String name = "GDI";
-                  System.out.println("Hi," + name)
-                }
-               </code>
-             </pre>
- 				</section>
-        
-
-        <!-- Elements entering one at a time-->
-        <section>
-					<section>
-						<h2>Fragmented Views</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<ol>
-							<li class="fragment"><code>any type</code></li>
-							<li class="fragment"><em>of view</em></li>
-							<li class="fragment"><strong>fragments</strong></li>
-						</ol>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's a few styles of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>
-							Slides can be nested inside of other slides,
-							try pressing <a href="#/14/1">down</a>.
-						</p>
-						<a href="#/14/1" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Press down or up to navigate.</p>
-						<a href="#/14/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-  						<a href="#/14" class="image">
-  							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<a href="#/14/3" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-  						<a href="#/14/1" class="image">
-  							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a href="#/14" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
-
-        
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview. Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
-
-				<section>
-					<h2>rvl.io</h2>
-					<p>
-						You know, we are nerds after all and will probably get a kick out of all of this HTML. BUT, if you really don't like writing slides in HTML you can use the online editor <a href="http://www.rvl.io" target="_blank">rvl.io</a>.
-					</p>
-				</section>
-
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=cube#/transitions">Cube</a> -
-						<a href="?transition=page#/transitions">Page</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a> -
-						<a href="?transition=linear#/transitions">Linear</a> -
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?#/transitions">Default</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						Reveal.js comes with a few themes built in: <br>
-            <a href="?theme=gdicool#/themes">GDI Cool</a> -
-            <a href="?theme=gdilight#/themes">GDI Light</a> -
-            <a href="?theme=gdisunny#/themes">GDI Sunny</a> -
-            <a href="?theme=gdidefault#/themes">Default</a>
-					</p>
-					<p>
-						<small>
-							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
-						</small>
-					</p>
-				</section>
-
-				<section data-state="customevent">
-					<h2>Custom Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						The nice thing about standards is that there are so many to choose from</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.
-					</blockquote>
-				</section>
-
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/1">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen
-						during a presentation.
-					</p>
-				</section>
-
-
-                <!-- Class begins -->
-				<section>
-					<h1>GDI Philly</h1>
-					<h3>Starter Slides</h3>
-				</section>
-                 <section>
-                    <p>wifi: network</p>
-                    <p>password: password</p>
-                    <h4><br />Early?</h4>
-                    <ul>
-                        <li>any prep instructions</li>
-                    </ul>
-                </section>
                 <section>
                     <h3>Welcome!</h3>
                     <div class="left-align">
@@ -398,61 +153,1111 @@
                             <li>Have fun</li>
                         </ul>
                     </div>
-                </section>
+				</section>
+
+				<section>
+					<h3>Welcome!</h3>
+					<p>One extra-special rule for this class:</p>
+					<br />
+					<div class='fragment'>Don't use the word "obviously" before explaining something to someone!</div>
+					<br />
+					<ul>
+						<li class='fragment'>Algorithms class gets confusing. Calling something challenging "obvious" can come out sounding a little bit condescending.</li>
+						<li class='fragment'>If the point you're about to explain is TRULY obvious ("clear, self-evident, or apparent"), then by definition you shouldn't need to explain it.</li>
+					</ul>
+				</section>
+
                 <section>
                     <h3>GDI Philly is now on Slack!</h3>
                     <div class="left-align">
                         <p>Slack is a free, chat and messaging system available as either a web or native application for your desktop or mobile device. All our welcome to join our Slack team, but we need to add you! For an invitation, <a href="http://goo.gl/forms/Qk1hqLxXtU" target="_blank">sign up here</a>.</p>
-                        <h4><br />Join #[slack-room-name] to slack about this class!</h4>
                     </div>
-                </section>
+				</section>
+
+
                 <section>
                     <h3>Introduce yourself</h3>
                     <ul>
                         <li>Who are you?</li>
                         <li>What do you hope to get out of this class?</li>
-                        <li>[Fun introductory question here. Make it inclusive!]</li>
+                        <li>What's your favorite thing about the current season or time of year?</li>
                     </ul>
-                </section>
-                <!-- Class content goes here -->
+				</section>
+
+
+
+
+				<section>
+					<h3>What we'll cover</h3>
+
+					<ul>
+						<li class='fragment'>What is an algorithm?</li>
+						<li class='fragment'>How to solve a problem with an algorithm, including:
+								<ul>
+									<li class='fragment'>Stating a problem formally</li>
+									<li class='fragment'>Solving the problem and expressing with psuedocode</li>
+									<li class='fragment'>Proving correctness</li>
+									<li class='fragment'>Analyzing runtime</li>
+								</ul>
+						</li>
+						<li class='fragment'>Introduction to Graph Theory</li>
+						<li class='fragment'>Introduction to Sorting</li>
+						<li class='fragment'>Introduction to Recursion</li>
+						<li class='fragment'>Introduction to Greedy algorithms</li>
+					</uL>
+				</section>
+
+				<section>
+					<h3>What we won't cover</h3>
+
+					<ul>
+						<li class='fragment'>A semester's worth of algorithms lectures</li>
+						<li class='fragment'>Every algorithm ever</li>
+						<li class='fragment'>...or really, most algorithms (<a href='http://en.wikipedia.org/wiki/List_of_algorithms' target='_blank'>see Wikipedia</a>)</li>
+						<li class='fragment'>Rigorous proofs</li>
+						<li class='fragment'>Advanced mathematical analysis</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Warm-up exercise!</h3>
+					<br />
+					<p><strong>Your mission:</strong></p>
+					<br />
+					<p>Find a way to shake the hand of every person in the room in the shortest time possible, but in a way that you can be confident you really did shake everyone's hand.</p>
+					<br />
+					<p class='fragment'>What are some approaches you came up with?</p>
+				</section>
+
+			<!-- End Introduction -->
+
+				<section>
+					<h3>What is an algorithm?</h3>
+
+					<p>An <strong>algorithm</strong> is an explicit, precise, unambiguous, mechanically-executable sequence of elementary instructions.</p>
+
+					<br />
+
+					<p>The word derives from the name of the 9th century Persian mathematician al-Khwarizmi.
+				</section>
+
+				<section>
+					<h3>What is an algorithm?</h3>
+
+			<p>Is this sequence of instructions from the gnomes on South Park an algorithm?</p>
+
+					<pre><code>
+Step 1: Collect underpants.
+
+Step 2: ????
+
+Step 3: Profit!
+					</code></pre>
+
+					<p class='fragment'><strong>Verdict: No, this is not an algorithm. Step 2 is not specific, and a machine could not execute it.</strong></p>
+				</section>
+
+				<section>
+					<h3>What is an algorithm?</h3>
+
+					<p>Is this sequence of instructions for taking out money from the ATM an algorithm?</p>
+					<pre><code>
+Step&nbsp;1: Insert card into ATM.
+
+Step&nbsp;2: Type your PIN on keypad.
+
+Step&nbsp;3: Enter an amount to withdraw less than your total balance.
+
+Step&nbsp;4: Receive money.
+					</code></pre>
+
+					<p class='fragment'><strong>Verdict: Yes, this is an algorithm.</strong></p>
+				</section>
+
+				<section>
+					<h3>What is an algorithm?</h3>
+
+					<p>Is this sequence of instructions from my shampoo bottle an algorithm?</p>
+
+					<pre><code>
+Step 1: Lather.
+
+Step 2: Rinse.
+
+Step 3: Repeat.
+					</code></pre>
+
+					<p class='fragment'><strong>Verdict: No, this is not an algorithm. Step 3 is ambiguous: what do we repeat, and until when?</strong></p>
+				</section>
+
+				<section>
+					<h3>Exercise!</h3>
+					<p><strong>Your mission: Think!</strong></p>
+					<br />
+					<p>What are some algorithms from your everyday life?</p>
+					<br />
+					<p>What are some algorithms you've encountered while programming?</p>
+				</section>
+
+				<section>
+					<h3>Why bother learning algorithms?</h3>
+					<h4>a.k.a. Why are you here?</h4>
+
+					<ul>
+						<li class='fragment'>It's like weight lifting for your brain. Exercise the muscles now so that they're ready to use when you need them.</li>
+						<li class='fragment'>It will help you think of techniques for solving problems.</li>
+						<li class='fragment'>It will expose you to some classic problems in computer science, which are often referenced in articles, tech talks, and interview questions.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>How to solve a problem with an algorithm</h3>
+
+					<p class='fragment'><strong>1. State the problem formally.</strong></p>
+
+					<br />
+					<p class='fragment'>Be as clear as possible. Use generalized variables instead of specific examples or instances of the problem.</p>
+
+					<br />
+					<p class='fragment'><strong>Bad:</strong> Sort some numbers like \((51, 62, 27, 3, 94)\).</p>
+					<p class='fragment'><strong>Good:</strong> Sort an array of integers \(A_{1}, A_{2}, \ldots A_{n}\) in increasing order.</p>
+				</section>
+
+				<section>
+					<h3>Exercise!</h3>
+					<p>Can you transform this loosely-defined instance of a problem into a well-defined statement of a more generic problem?<p>
+					<br />
+					<p class='fragment'>Let's say I gave you five blocks with the weights of 1 pound, 2 pounds, 5 pounds, 8 pounds, and 10 pounds, respectively. Could you fill a sack with blocks so that its weight is exactly 21 pounds?</p>
+					<br />
+					<p class='fragment'>Interested in thinking more about this? It's called the "Knapsack Problem".</p>
+				</section>
+
+				<section>
+					<h3>How to solve a problem with an algorithm</h3>
+
+					<p class='fragment'>
+						<strong>2. Find a solution to the problem*</strong>
+						<br />
+						<small>* Note: this step in particular makes this list NOT an algorithm</small>
+					</p>
+
+					<br />
+					<p class='fragment'>You might solve the problem using known techniques, ingenuity, or a little bit of both.</p>
+
+					<br />
+					<p class='fragment'>Find a way to express your solution to others, perhaps through the use of <strong>pseudocode</strong>.</p>
+				</section>
+
+				<section>
+					<h3>Pseudocode</h3>
+					<ul>
+						<li class='fragment'>Uses the structure of formal programming languages and mathematics.</li>
+						<li class='fragment'>Breaks algorithms down into primitive steps.</li>
+						<li class='fragment'>The primitive steps may be written using mathematics, pure English, or an appropriate mixture of the two.</li>
+						<li class='fragment'>Reveals the internal structure of the algorithm but hides irrelevant implementation details.</li>
+						<li class='fragment'>Makes the algorithm much easier to understand, analyze, debug, and implement.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Pseudocode</h3>
+
+					<p>Here is an algorithm for singing "99 Bottles of Beer on the Wall", for arbitrary values of 99:</p>
+
+					<br />
+					<p class='fragment'>BottlesOfBeer(\(n\)):</p>
+					<pre class='fragment'><code>
+For i &larr; n down to 1
+  Sing "i bottles of beer on the wall, i bottles of beer,"
+  Sing "Take one down, pass it around,"
+  Sing "i − 1 bottles of beer on the wall."
+Sing "No bottles of beer on the wall, no bottles of beer,"
+Sing "Go to the store, buy some more, n bottles of beer on the wall."
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Handshake problem</h3>
+
+					<p>Find a way to shake the hand of every person in the room in the shortest time possible, but in a way that you can be confident you really did shake everyone's hand.</p>
+
+					<br />
+
+					<p class='fragment'>
+						One possible solution:
+						<br /><br />
+						Stand in two parallel lines facing each other. Shake hands with the person in front of you. Take a step to the left, where the last person at the end of the line moves to the beginning of the other line. Continue this process until you have shaken everyone's hand.
+					</p>
+				</section>
+
+				<section>
+					<h3>Handshake problem</h3>
+					<p>Let's express it with pseudocode!</p>
+
+					<br />
+					<p>HandshakeWithEveryone(\(P[1 .. n]\)):</p>
+
+					<pre><code>
+&lang;&lang;i represents the number of people you still need to shake hands with&rang;&rang;
+for i &larr; n down to 2
+	&lang;&lang;shake hands&rang;&rang;
+	line1 &larr; P[1 .. n/2]
+	line2 &larr; P[n/2 + 1 .. n]
+	ShakeHands(line1, line2);
+
+	&lang;&lang;shift over one, and wrap the last guy&rang;&rang;
+	P&rsquo;[n] &larr; P[1]
+	for j &larr; n down to 2
+	&nbsp;	P&rsquo;[j-1] = P[j]
+	P &larr; P&rsquo;
+					</code></pre>
+
+					<aside class='notes'>
+						<ul>
+							<li>Mention implementation details: Assuming n is even</li>
+							<li>Mention time it takes to run ShakeHands</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section>
+					<h3>Exercise!</h3>
+
+					<p>Write pseudocode that prints the lyrics of the song "BINGO" for arbitrary long names of dogs.</p>
+
+					<em>
+					<br />There was a farmer who had a dog
+					<br />And BINGO was his name-o
+					<br />B-I-N-G-O, B-I-N-G-O, B-I-N-G-O
+					<br />And BINGO was his name-o
+					<br />There was a farmer who had a dog
+					<br />And BINGO was his name-o
+					<br />(clap)-I-N-G-O, (clap)-I-N-G-O, (clap)-I-N-G-O
+					<br />...
+					</em>
+				</section>
+
+				<section>
+					<h3>How to solve a problem with an algorithm</h3>
+
+					<p class='fragment'><strong>3. Prove your algorithm is correct.</strong></p>
+					<ul>
+						<li class='fragment'>We must convince our audience (and ourselves!) that the algorithm actually does what it's supposed to do.</p>
+						<li class='fragment'>The algorithm must be correct for <em>all possible</em> inputs.  It's not enough to show that the algorithm does the right thing on some example input.</li>
+						<li class='fragment'>Usually requires a formal, mathematical proof of correctness.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Mathematical proofs</h3>
+
+					<p class='fragment'>Just kidding. We're totally not going to cover this today; it would need a class of its own.</p>
+
+					<p class='fragment'>In lieu of knowing how to construct formal proofs, you can do a few other things in practice:</p>
+						<ul>
+							<li class='fragment'>Try to reason, even informally, about why your algorithm is correct.</li>
+							<li class='fragment'>Explain your algorithm to a peer. You'll have to be very clear to convince your peer, and your peer's feedback can be valuable.</li>
+							<li class='fragment'>If you're coding, write unit tests that cover all possible inputs.</li>
+						</ul>
+				</section>
+
+				<section>
+					<h3>How to solve a problem with an algorithm</h3>
+
+					<p>
+						<strong>4. Analyze the runtime of your algorithm.</strong>
+						<br />
+						<small>(and/or storage space needed to execute the algorithm)</small>
+					</p>
+
+					<p class='fragment'>We want to communicate how long our algorithm will take to execute, and we want to be able to compare it against other algorithms claiming to do the same task.</p>
+
+					<p class='fragment'>It's impossible to predict what size input your algorithm is going to have to operate on, so we express runtime in terms of the <strong>size of the input</strong>.</p>
+
+				</section>
+
+				<section>
+					<h3>Analyzing runtime</h3>
+
+					<p>Let's consider the expression \(2x + 7\) for different inputs of size \(x\):</p>
+
+					<table>
+					<tr class='fragment'>
+						<td style='width: 50%;'>If \(x=0\):</td><td style='width: 50%;'> \(2*0 + 7 = 7\)</td>
+					</tr><tr class='fragment'>
+						<td style='width: 50%;'>If \(x=1\):</td><td style='width: 50%;'> \(2*1 + 7 = 9\)</td>
+					</tr><tr class='fragment'>
+						<td style='width: 50%;'>If \(x=10\):</td><td style='width: 50%;'> \(2*10 + 7 = 27\)</td>
+					</tr><tr class='fragment'>
+						<td style='width: 50%;'>If \(x=100\):</td><td style='width: 50%;'> \(2*100 + 7 = 207\)</td>
+					</tr><tr class='fragment'>
+						<td style='width: 50%;'>If \(x=10000\):</td><td style='width: 50%;'> \(2*10000 + 7 = 20007\)</td>
+					</tr>
+					</table>
+
+					<br />
+					<p class='fragment'>The constant \(7\) becomes less and less a part of the answer as the size of \(x\) gets bigger and bigger.</p>
+				</section>
+
+				<section>
+					<h3>Analyzing runtime</h3>
+
+					<p><strong>Asymptotic analysis</strong> is the method of characterizing a mathematical function by how it trends as the input size approaches infinity.</p>
+
+					<br />
+
+					<p class='fragment'>In computer science, we use <strong>big O notation</strong> to talk about asymptotic growth. We use it to capture the <strong>worst case</strong> run time of your algorithm.</p>
+
+					<br />
+					<div class='fragment'>\(2x + 7 = O(x)\)
+						<br />
+						<small>You say: "two ex plus seven is big oh of ex"</small>
+					</div>
+				</section>
+
+				<section>
+					<h3>Analyzing runtime</h3>
+
+					<p class='fragment'>To find the big O function, you can often "drop" terms from your expression that grow significantly slower than the leading term.</p>
+
+					<br />
+						<div class='fragment'>\(2x + 7 = O(x)\)</div>
+						<div class='fragment'>\(5x^{2} + 15x + 8 = O(x^{2})\)</div>
+						<div class='fragment'>\(2x! + 6x + 37 = O(x!)\)</div>
+
+					<br />
+
+					<p class='fragment'>In practice, you shouldn't have to think too much about complicated equations, but it's important to understand where the idea of "big O" comes from.</p>
+				</section>
+
+				<section>
+					<h3>Analyzing runtime</h3>
+
+					<p>For your purposes, it's probably best to think about big O conceptually.</p>
+
+					<br />
+					<p class='fragment'><strong>Example 1:</strong> What is the first element of the array \(A[1 .. n]\)?</p>
+
+					<br />
+					
+					<p class='fragment'><strong>Algorithm:</strong> Simply return \(A[1]\), regardless of the size of the number of elements, \(n\).</p>
+
+					<br />
+
+					<p class='fragment'>This took us a <strong>constant</strong> amount of time, a.k.a. \(O(1)\).</p>
+				</section>
+
+				<section>
+					<h3>Analyzing runtime</h3>
+
+					<p><strong>Example 2:</strong> What is the largest number in the array \(A[1 .. n]\)?</p>
+
+					<pre class='fragment'><code>
+b &larr; -infinity
+for i &larr; 1 to n
+  if A[i] &gt; b
+     b &larr; A[i]
+return b
+					</code></pre>
+
+					<br />
+
+					<p class='fragment'>We had to <strong>loop over every element</strong> of the array, so we had to look at all \(n\) inputs.</p>
+
+					<p class='fragment'>This took us a <strong>linear</strong> amount of time, a.k.a. \(O(n)\).</p>
+				</section>
+
+				<section>
+					<h3>Analyzing runtime</h3>
+
+					<p><strong>Example 3:</strong> Does the array \(A[1 .. n]\) contain any duplicates?</p>
+
+					<pre class='fragment'><code>
+for i &larr; 1 to n
+  for j &larr; 1 to n
+	if i = j
+	  continue
+	else if A[i] = A[j]
+	  return true
+return false
+					</code></pre>
+
+					<br />
+
+					<p class='fragment'>We have <strong>two nested loops</strong> over the array.</p>
+
+					<p class='fragment'>This took us a <strong>quadratic</strong> amount of time, a.k.a. \(O(n^{2})\).</p>
+				</section>
+
+				<section>
+					<h3>How to solve a problem with an algorithm</h3>
+
+					<p>Let's review what we've learned!</p>
+
+					<br />
+					<ol>
+						<li class='fragment'>State the problem formally.</li>
+						<li class='fragment'>Find a solution to the problem.</li>
+						<li class='fragment'>Prove your algorithm is correct.</li>
+						<li class='fragment'>Analyze the runtime of your algorithm.</li>
+					</ol>
+
+					<br />
+					<br />
+					<p class='fragment'>Got it? Good. Now let's have some fun!</p>
+
+				</section>
+
+				<section>
+					<h3>Graph Theory</h3>
+
+					<p>A <strong>graph</strong> is defined as \(G = (V, E)\), where \(V\) is a set of objects called <strong>vertices</strong> (singular: vertex), and \(E\) is a set of <strong>edges</strong> joining pairs of vertices.</p>
+
+					<br />
+
+					<p class='fragment'>Graphs represent a set of concepts and how they are related to each other, and they can be used to model many concepts.</p>
+				</section>
+
+				<section>
+					<h3>Graph Theory in Real Life</h3>
+
+					<br />
+					<p>Transit maps, like PATCO:</p>
+					<br />
+					<img src="images/patco.png" />
+
+				</section>
+
+				<section>
+					<h3>Graph Theory in Real Life</h3>
+
+					<p>Flight maps, like for Spirit Airlines:</p>
+					<img src="images/spirit.jpg" />
+				</section>
+
+				<section>
+					<h3>Graph Theory in Real Life</h3>
+
+					<p>The possibilities are endless.  Here's a few more:</p>
+
+					<ul>
+						<li class='fragment'>Wikipedia articles and the hyperlinks between them</li>
+						<li class='fragment'>Users or objects on a social media site and the "friendships" or "likes" between them</li>
+						<li class='fragment'>Relationships of movie actors, so as to play <a href='http://en.wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon' target="_blank">Six Degrees of Kevin Bacon</a></li>
+					</ul>
+					<br /><br />
+					<p class='fragment'>Once you have modeled your problem as a graph, then you can use Graph Theory to solve your problem.</p>
+				</section>
+
+				<section>
+					<h3>Bridges of Königsberg</h3>
+					<p>The city of Königsberg in Prussia was set on both sides of the Pregel River, and included two large islands which were connected to each other and the mainland by <strong>seven bridges</strong>.</p>
+					<img src="images/konigsberg.png" />
+				</section>
+
+				<section>
+					<h3>Bridges of Königsberg</h3>
+					<p><strong>The big question:</strong></p>
+					<p>Is it possible to find a walk through the city that would cross each bridge once and only once?</p>
+					<div>
+						<img class='fragment' src="images/euler.png" style="height: 200px;">
+						<span class='fragment' id="konigsberg_output"></span>
+					</div>
+					<p class='fragment'><strong>Exercise</strong>: Try it!</p>
+				</section>
+
+				<section>
+					<h3>Bridges of Königsberg</h3>
+					<p><strong>The key piece of intuition:</strong></p>
+					<br />
+					<div>Except at the beginning and end of the journey, whenever one enters a vertex by a bridge, one also has to leave that vertex by a bridge.</div>
+					<br />
+					<p class='fragment'>It follows that every vertex (except for the start and the finish) must have an <strong>EVEN</strong> number of edges touching it.</p>
+				</section>
+
+				<section>
+					<h3>Bridges of Königsberg</h3>
+					<p><strong>Definition:</strong> We call the number of edges coming out of a vertex the <strong>degree</strong> of the vertex.</p>
+					<br />
+					<p class='fragment'><strong>Definition:</strong> A <strong>walk</strong> or a <strong>path</strong> is a sequence of vertices and edges, where each edge's endpoints are the preceding and following vertices in the sequence.</p>
+					<br />
+					<p class='fragment'><strong>Definition:</strong> A <strong>tour</strong> or a <strong>circuit</strong> is a walk where the vertices at the beginning and end of the walk are the same.</p>
+				</section>
+
+				<section>
+					<h3>Bridges of Königsberg</h3>
+					<p>This problem was studied by <strong>Leonard Euler</strong> (pronounced "oil-er") in 1735 and laid the foundations for graph theory and topology.</p>
+					<br />
+					<p class='fragment'>In Euler's honor, we say that a graph that contains exactly <strong>zero or two vertices</strong> of <strong>odd degree</strong> has an <strong>Eulerian path</strong> (or walk).</p>
+					<br />
+					<p class='fragment'>If the start and endpoints are the same vertex, then it is called an <strong>Eulerian tour</strong> (or circuit).</p>
+				</section>
+				<section>
+					<h3>Bridges of Königsberg</h3>
+					<br />
+					<img src="images/euler.png" style="height: 200px;">
+					<p><strong>Conclusion</strong>: Since the graph corresponding to the Königsberg bridges has four vertices of odd degree, it cannot have an Eulerian path.</p>
+				</section>
+
+				<section>
+					<h3>Graph Exercise 1</h3>
+					<p>Find an Eulerian walk for the graph below:</p>
+					<br />
+					<div id="euler_output"></div>
+					<br />
+					<p>Is it possible to find an Eulerian circuit?</p>
+				</section>
+
+				<section>
+					<h3>Graph Exercise 2</h3>
+					<p><strong>Definition:</strong> A graph is called <strong>complete</strong> if <em>every pair</em> of distinct vertices has an edge between them. (No loops from a vertex back to itself.)</p>
+					<br/>
+					<p>Draw the <strong>complete graph</strong> on 0 vertices, 1 vertex, 2 vertices, 3 vertices, 4 vertices, and 5 vertices. (Hint: if 0 and 1 are stumping you, skip over them and start from 2)</p>
+				</section>
+
+
+				<section>
+					<h3>Tree traversal</h3>
+					<br />
+					<p><strong>Definition:</strong> A graph is <strong>connected</strong> if it is in one piece; that is, if a path exists between any pair of vertices.</p>
+					<br />
+					<p class='fragment'><strong>Definition:</strong> A graph is a <strong>tree</strong> if every two vertices are connected by exactly one path. Another way to define a tree is to say that there are no circuits or cycles from one vertex back to itself.</p>
+				</section>
+
+				<section>
+					<h3>Tree traversal</h3>
+					<p>Most people in the room are already VERY familiar with one tree we talk about a lot in GDI classes:</p>
+					<br/>
+					<div class='fragment'>The HTML Document Object Model (DOM)!</div>
+					<br/>
+					<img class='fragment' src="images/dom.gif" />
+
+				</section>
+
+				<section>
+					<h3>Tree Traversal</h3>
+					<br />
+					<p>Suppose we have a connected tree where each vertex has a label, and we're looking for a vertex with a particular label.</p>
+					<br />
+					<p class='fragment'>There are two well-known algorithms that we can use:</p>
+					<ul class='fragment'>
+						<li>Depth-first search</li>
+						<li>Breadth-first search</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Tree traversal</h3>
+					<br />
+					<p><strong>Depth-first search</strong> (DFS): Starting from some vertex, explore as far as possible down each branch before backtracking.</p>
+					<img class='fragment' src="images/dfs.png" />
+				</section>
+
+				<section>
+					<h3>Tree Traversal</h3>
+					<br />
+					<p><strong>Breadth-first search</strong> (BFS): Starting from some vertex, fan out to as many vertices as possible before exploring deeper into the tree.</p>
+					<img class='fragment' src="images/bfs.png">
+				</section>
+
+				<section>
+					<h3>Tree Traversal</h3>
+					<p>When you should use DFS versus BFS is something that varies on the nature of the graph you're searching.</p>
+					<br />
+					<p class='fragment'>If the graph expands rapidly, then it may take too much memory to remember all the nodes you're fanning through for BFS.</p>
+					<br />
+					<p class='fragment'>If the graph is very deep, then it might take too much time getting lost down individual paths for DFS.</p>
+				</section>
+
+				<section>
+					<h3>Exercise</h3>
+					<p>Let's say you were looking for the vertex "f".  How many vertices do you have to check against when searching by DFS? by BFS?</p>
+					<div id="DFS_output"></div>
+				</section>
+
+				<section>
+					<h3>Traveling Salesman Problem</h3>
+
+					<p>The famous traveling salesman problem asks the following question: Given a list of cities and the distances between each pair of cities, what is the <strong>shortest possible route</strong> that visits each city <strong>exactly once</strong> and returns to the origin city?</p>
+					<br />
+
+					<p>This can be modeled as a graph where the cities are the vertices, the connections are the edges, and the distances are <strong>weights</strong> or labels on the edges.</p>
+				</section>
+
+				<section>
+					<h3>Traveling Salesman Problem</h3>
+					<br />
+					<img src='images/tsp.svg' style='width:400px; border: 0px;'/>
+
+				</section>
+
+				<section>
+					<h3>Traveling Salesman Problem</h3>
+
+					<img src='http://imgs.xkcd.com/comics/travelling_salesman_problem.png' />
+				</section>
+
+				<section>
+					<h3>Traveling Salesman Problem</h3>
+
+					<p>Although we don't nearly have enough time to fully go into WHY, it's worth pointing out why this problem is famous: it's one of a set of problems that are called <strong>NP-hard</strong>.</p>
+					<br/>
+					<p class='fragment'>Only very long-running (think: exponential!) solutions have been found.  If you find an algorithm that takes only a polynomial amount of time, you will be a very rich and famous celebrity of computer science.</p>
+
+				</section>
+
+				<section>
+					<h3>Graph Theory: Wrap up</h3>
+					<br />
+					<p>You can use graphs to model lots of real-world problems, and then apply algorithms to the resulting graph to solve those problems.</p>
+
+					<br />
+					<p class='fragment'>If you like this stuff, then you might want to look into more Graph Theory problems, such as:</p>
+					<ul>
+						<li class='fragment'>Four Color Theorem</li>
+						<li class='fragment'>Hamiltonian paths</li>
+						<li class='fragment'>Minimum spanning tree</li>
+						<li class='fragment'>Max Flow / Min Cut</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Sorting Algorithms</h3>
+					<p>There are lots of ways to sort things! Here's some:</p>
+					<ol>
+						<li class='fragment'><strong>Selection sort</strong> - repeatedly find the smallest element and append to the sorted list</li>
+						<li class='fragment'><strong>Insertion sort</strong> - repeatedly take the first element and find it's place in the sorted list</li>
+						<li class='fragment'><strong>Quick sort</strong> - repeatedly picks a pivot point and finds elements smaller and larger than the pivot</li>
+						<li class='fragment'><strong>Merge sort</strong> - divide into small groups and repeatedly merge the sorted sub-lists</li>
+						<li class='fragment'><strong>Bubble sort</strong> - repeatedly compare pairs and swap if necessary until the list is sorted </li>
+					</ol>
+
+				</section>
+
+				<section>
+				<h3>Sorting Algorithms: Visualization!</h3>
+					<br/>
+					<iframe width="560" height="315" src="http://www.youtube.com/embed/kPRA0W1kECg" frameborder="0" allowfullscreen></iframe>
+				</section>
+				<section>
+					<h3>Stand-up exercise!</h3>
+					<br />
+					<p><strong>Your mission:</strong></p>
+					<br />
+					<p>Take a card with a number. Sort yourselves in numeric order following the <strong>Merge Sort</strong> algorithm.</p>
+
+					<br />
+					<p>We'll walk through it together!</p>
+				</section>
+
+				<section>
+					<h3>Merge Sort Part 1: Divide</h3>
+					<ol>
+						<li>Start as one unorganized clump of \(n\) humans.</li>
+						<li class='fragment'>Split into two even groups.</li>
+						<li class='fragment'>Each of the two groups splits into two groups (total: four groups of \(n/4\) humans).</li>
+						<li class='fragment'>Continue splitting up (and keep track of the splits!) until there are \(n\) groups, each with \(1\) human.</li>
+					</ol>
+				</section>
+
+				<section>
+					<h3>Merge Sort Part 2: Merge</h3>
+					<ol>
+						<li>Each pair of humans that was the last to break apart should get back together into a group of 2.</li>
+						<li class='fragment'>Compare your two numbers. The person with the smaller number should move to the left side, and the person with the larger number should move to the right side.</li>
+						<li class='fragment'>Now you have a group of 2 that is sorted. All around the room, we should have sorted groups of 2.</li>
+						<li class='fragment'>Next, two groups of size 2, which originally split apart from each other, need to merge...</li>
+					</ol>
+				</section>
+
+				<section>
+					<h3>Merge Sort Part 2: Merge</h3>
+					<ol style='list-style-type: lower-alpha;'>
+						<li class='fragment'>Two sorted groups approach each other.</li>
+						<li class='fragment'>From EACH sorted group, the person with the SMALLEST number should step forward. These two people should compare their numbers.</li>
+						<li class='fragment'>Whoever has the smaller number (Person A) should move to the side to start a new sorted line; whoever has the larger number (Person B) should stay put and wait for another comparison.</li>
+						<li class='fragment'>The next smallest number holder from Person A's group should step forward and compare numbers with Person B.</li>
+						<li class='fragment'>Continue comparing until your two groups have merged into one sorted group.</li>
+					</ol>
+				</section>
+
+				<section>
+					<h3>Merge Sort Part 2: Merge</h3>
+					<br/>
+					<p>We'll continue this process until everyone has merged into a SINGLE line!</p>
+					<br/>
+					<p class='fragment'>Let's go try it!</p>
+				</section>
+
+				<section>
+					<h3>Reduction</h3>
+					<br />
+					<p><strong>Reducing</strong> one problem X to another problem Y means to write an algorithm for X that uses an algorithm for Y as a <strong>black box or subroutine.</strong></p>
+					<br />
+					<p class='fragment'>The correctness of the resulting algorithm cannot depend in any way on <em>how</em> the algorithm for Y works. The only thing we can assume is that the black box solves Y correctly.</p>
+					<br />
+					<p class='fragment'>Think of the black box Y as MAGICAL.</p>
+				</section>
+
+				<section>
+					<h3>Reduction</h3>
+					<br />
+					<p>We use reductions every day in real life, and they're very common in programming. For example, consider my husband's commute:</p>
+					<br/>
+					<p class='fragment'>Problem: Get from our house to work.</p>
+					<ul>
+						<li class='fragment'>Walk from our house to the PATCO station.</li>
+						<li class='fragment'>Ride PATCO. (black box!)</li>
+						<li class='fragment'>Walk from 12-13/Locust to work</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Exercise</h3>
+					<br/>
+					<p>Can you think of something you do in real life or something you had to program where you used a subroutine or black box?</p>
+				</section>
+
+				<section>
+					<h3>Recursion</h3>
+					<br />
+					<p>Recursion is a particularly powerful kind of reduction, which can be described loosely as follows:</p>
+					<br >
+					<ul>
+						<li class='fragment'>If the given instance of the problem is small or simple enough, just solve it.</li>
+						<li class='fragment'>Otherwise, reduce the problem to one or more <em>simpler instances of the same problem</em>.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Recursion</h3>
+
+					<br/>
+					<p>When we reduce problem X to smaller versions of problem X, we rely on those smaller versions of problem X magically solving themselves.</p>
+
+					<br />
+					<p class='fragment'>My teacher used to call this the magic of the "Recursion Fairy".</p>
+				</section>
+
+				<section>
+					<h3>Recursion</h3>
+
+					<p>To solve a problem with recursion:</p>
+					<br />
+					<ul>
+						<li class='fragment'>You need to solve some sort of <strong>base case</strong>. This is often means solving the problem for an input of size 0 or 1.</li>
+						<li class='fragment'>You need to divide up the problem into smaller parts and pass them to the recursion fairy.</li>
+						<li class='fragment'>You need to be able to use the results that the recursion fairy gives you.</li>
+						<li class='fragment'>Don't try to recurse over an infinite list of items.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Writing letters</h3>
+					<p>Suppose you had to write letters to \(n\) friends.</p>
+					<br/>
+					<p class='fragment'>You could solve this by looping (a.k.a. "iterative").</p>
+					<br />
+					<p class='fragment'>WriteLetter(Friend_1, Friend_2, ..., Friend_n):</p>
+					<pre class='fragment'><code>
+for i &larr; 1 to n
+    get a piece of paper and a pen and write to Friend_i
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Writing letters</h3>
+					<br />
+					<p>Alternately, you could solve by recursion.</p>
+					<br />
+					<p class='fragment'>WriteLetter(Friend_1, Friend_2, ..., Friend_n):</p>
+					<pre class='fragment'><code>
+if n = 1
+	get a piece of paper and a pen and write to Friend_n
+else
+    WriteLetter(Friend_1)
+    and WriteLetter(Friend_2, ..., Friend_n)
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Writing letters</h3>
+					<br />
+					<p>You can break the friends up in to different sized subproblems and still use recursion.</p>
+					<br />
+					<p class='fragment'>WriteLetter(Friend_1, Friend_2, ..., Friend_n):</p>
+					<pre class='fragment'><code>
+if n = 1
+	get a piece of paper and a pen and write to Friend_n
+else
+    WriteLetter(Friend_1, ..., Friend_(n/2))
+    and WriteLetter(Friend_(n/2 + 1), ..., Friend_n)
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Writing letters</h3>
+					<br/>
+					<p>What's the difference in these two ways of splitting up the problem to recurse?</p>
+					<br/>
+					<div class='fragment'>
+						<span id="recurse1_output"></span>
+						<span id="recurse2_output"></span>
+					</div>
+				</section>
+
+				<section>
+					<h3>Recursion vs. Iteration</h3>
+					<br />
+					<p>People often debate which is better for problem solving: recursion or iteration (looping). The short answer is...</p>
+					<br />
+					<div class='fragment'>There is no one right answer.</p>
+				</section>
+
+				<section>
+					<h3>Recursion vs. Iteration</h3>
+
+					<br/>
+					<p><strong>It depends on the programming language.</strong></p>
+					<br/>
+					<p class='fragment'>Some languages like C have a lot of overhead when they call functions. If you have to call the same function over and over and over, you can quickly run out of stack space (the way that the computer remembers the order of function calls).</p>
+
+				</section>
+
+				<section>
+					<h3>Recursion vs. Iteration</h3>
+					<br />
+					<p><strong>It depends on the problem.</strong></p>
+					<br/>
+					<p class='fragment'>Sometimes a recursive algorithm is more succinct and better captures the algorithm's intent.</p>
+					<br />
+					<p class='fragment'>Some classes of problems feel like they're just MADE for a recursive solution, like problems about trees in graph theory.</p>
+				</section>
+				<section>
+					<h3>Recursion: DFS</h3>
+					<p>Remember Depth-First Search that we talked about before? We can express that as a recursive algorithm.</p>
+
+					<br />
+					<p class='fragment'>DFS(graph \(G\), vertex \(v\), searchterm \(i\)):</p>
+					<pre class='fragment'><code>
+if v does not exist
+   return false
+else if the label of v matches i
+   return true
+else
+   for every edge from v to other vertex u
+      return DFS(G, u, i)
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Recursion: DFS</h3>
+					<p>We've reduced the problem of finding label \(i\) in a huge graph \(G\) to finding label \(i\) in a slightly smaller graph, \(G\) less the vertex \(v\).</p>
+					<br />
+					<p class='fragment'>Once we have the answer from the subgraph, we can simply return it.</p>
+					<br/>
+					<p class='fragment'>And it just works.</p>
+					<br />
+					<p class='fragment'>Thanks, Recursion Fairy.</p>
+				</section>
+
+				<section>
+					<h3>Exercise</h3>
+					<p>Consider the following problem regarding the population of rabbits:</p>
+					<ul class='fragment'>
+						<li>Each pair of rabbits produces a new pair of offspring each month</li>
+						<li>Rabbits become fertile in their second month of life</li>
+						<li>Old rabbits never die</li>
+					</ul>
+					<br /><br />
+					<p class='fragment'>If a pair of newborn rabbits are introduced in January, how many pairs of rabbits will there be at the end of the year?</p>
+				</section>
+
+				<section>
+					<h3>Recursion: Fibonacci</h3>
+
+					<br />
+					<p>Perhaps it's useful to know that that problem was posed in 1202 by Leonardo Fibonacci...</p>
+					<br />
+					<p class='fragment'>We can express how to calculate a term in the Fibonacci series recursively!</p>
+					<br />
+					<p class='fragment'>Fibonacci(\(n\)):</p>
+					<pre class='fragment'><code>
+if (n &lt; 2)
+   return n
+else
+   return Fibonacci(n-1) + Fibonacci(n-2)
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Recursion: Fibonacci</h3>
+
+					<div>Fib(12) = Fib(11) + Fib(10)</div>
+					<div class='fragment'>Fib(11) = Fib(10) + Fib(9)</div>
+					<div class='fragment'>Fib(10) = Fib(9) + Fib(8)</div>
+					<div class='fragment'>...</div>
+					<div class='fragment'>Fib(3) = 1 + 1</div>
+					<br />
+					<p class='fragment'>Something to keep in mind: often with recursion, you repeat the same calculations over and over again as you recurse.</p>
+
+					<p class='fragment'>If you have enough storage space, you can save some time by saving values as you calculate them. This is called <strong>memoization</strong>.</p>
+				</section>
+
+				<section>
+					<h3>Recursion: Wrap up</h3>
+					<br />
+					<p>You can often solve problems by <strong>reducing</strong> a problem to another problem.</p>
+					<br />
+					<p class='fragment'>If you reduce a problem to one or more <strong>smaller instances of itself</strong> then you are performing <strong>recursion</strong>.</p>
+					<br />
+					<p class='fragment'>Solve for a small <strong>base case</strong> and be able to combine and return the results of the smaller, magical pieces.</p>
+				</section>
+
+				<section>
+					<h3>Recursion: Wrap up</h3>
+					<br />
+					<p>Interested in solving problems with recursion? Look into some other problems that have elegant recursive solutions, such as:</p>
+					<ul>
+						<li class='fragment'>Towers of Hanoi<br/><small>(did you get to play with it before class?)</small></li>
+						<li class='fragment'>Binary search</li>
+						<li class='fragment'>Filesystem traversal</li>
+						<li class='fragment'>Lots of other algorithms that can be expressed recursively!</li>
+					</ul>
+				</section>
+
+
+				<section>
+					<h3>Special topics</h3>
+					<br />
+					<p>If there's one thing I learned in computer science classes, it's that the speaker always talks about their own research last if they have extra time.</p>
+					<br />
+					<p class='fragment'>Today I'm going to teach you about <strong>coin sets</strong> and <strong>greedy algorithms</strong>.</p>
+				</section>
+
+				<section>
+					<h3>Quick exercise</h3>
+					<br />
+					<p>Let's say you are a cashier and you owe somebody 43 cents.</p>
+					<br />
+					<p>1. What is the maximum number of coins you could give to the person?</p>
+					<br />
+					<p>2. What is the minimum number of coins you could give to the person?</p>
+				</section>
+
+				<section>
+					<h3>Coin sets</h3>
+					<br />
+					<p>We can characterize the denominations of the coins of the US with an array of values called a <strong>coin set</strong>:</p>
+					<br />
+					<div class='fragment'>\((1, 5, 10, 25, 50, 100)\)</div>
+					<br />
+					<p class='fragment'>You'll use the minimum number of coins by always choosing the largest denomination coin that is not larger than the amount you have left to make.</p>
+				</section>
+
+				<section>
+					<h3>Greedy algorithms</h3>
+					<br />
+					<p>A <strong>greedy algorithm</strong> is an algorithm that always makes the locally-optimal choice with the hopes of finding a global optimum.</p>
+					<br />
+					<p class='fragment'>Sometimes, a greedy algorithm finds an optimal solution.</p>
+					<br />
+					<p class='fragment'>For many problems, a greedy algorithm will NOT produce a correct solution. But sometimes it produces a close-enough approximation to the optimal result.</p>
+				</section>
+
+				<section>
+					<h3>Non-Greedy coin sets</h3>
+					<br />
+					<p>Instead of the standard US coin set, what if you had the following coin set:</p>
+					<div class='fragment'>\((1, 3, 4)\)</div>
+					<br />
+					<p class='fragment'>Spoiler alert: this is a coin set where the greedy algorithm WON'T always work. There is at least one <strong>counterexample to greediness</strong>.
+					<br />
+					<p class='fragment'><strong>Exercise:</strong> Find an amount of change that you CAN make greedily.  Find an amount of change that you CANNOT make greedily.</p>
+				</section>
+
+				<section>
+					<h3>Non-Greedy coin sets</h3>
+					<br />
+					<p><a href="http://moneyart.biz/dd/" target="_blank">Antarctica Dream-Dollars</a>, the official currency of Nadiria, the lost colony of Antactica, is a fun example of a non-greedy coin set:</p>
+					<br />
+					<div class='fragment'>\((1, 4, 7, 13, 28, 52, 91, 365)\)</div>
+					<br />
+					<p class='fragment'>Were the coin set creators to have left off the 365 or were they to include rather the denomination 364, they would have a greedy coin set!</p>
+				</section>
+
+				<section>
+					<h3>Non-Greedy coin sets</h3>
+					<br />
+					<p>A real-life example of a non-greedy coin set is the English system of currency from pre-1971:</p>
+					<br />
+					<div class='fragment'>\((\frac{1}{2}, 1, 3, 6, 12, 24, 30, 60, 240)\)</div>
+				</section>
+
+				<section>
+					<h3>Final Wrap Up!</h3>
+					<ul>
+						<li class='fragment'>What is an algorithm?</li>
+						<li class='fragment'>How to solve a problem with an algorithm, including:
+								<ul>
+									<li class='fragment'>Stating a problem formally</li>
+									<li class='fragment'>Solving the problem and expressing with psuedocode</li>
+									<li class='fragment'>Proving correctness</li>
+									<li class='fragment'>Analyzing runtime</li>
+								</ul>
+						</li>
+						<li class='fragment'>Introduction to Graph Theory</li>
+						<li class='fragment'>Introduction to Sorting</li>
+						<li class='fragment'>Introduction to Recursion</li>
+						<li class='fragment'>Introduction to Greedy algorithms</li>
+					</uL>
+				</section>
+			<!-- Wrapping up! -->
+				<section>
+					<h3>Recommended Textbooks</h3>
+
+					<p>
+						<strong><u>Introduction to Algorithms</u> - Cormen, Leiserson, Rivest, Stein</strong> (<a href='http://www.amazon.com/Introduction-Algorithms-Edition-Thomas-Cormen/dp/0262033844' target='_blank'>available on Amazon</a>)
+						<br />About this book: a.k.a. "CLRS", a well-known advanced undergraduate textbook for a course in algorithms
+					</p>
+					<br />
+
+					<p>
+						<strong><u>Discrete Mathematics and its Applications</u> - Rosen</strong> (<a href='http://www.amazon.com/Discrete-Mathematics-Applications-Kenneth-Rosen/dp/0072899050' target='_blank'>available on Amazon</a>)
+						<br />About this book: a well-known junior undergraduate textbook for a course in discrete mathematics, which is generally an expected prerequisite for algorithms
+					</p>
+				</section>
+
+				<section>
+					<h3>Recommended Textbooks</h3>
+					<p>
+					<strong><u>Introduction to Graph Theory</u> - Robin J. Wilson</strong><br />(<a href='http://www.amazon.com/Introduction-Graph-Theory-5th-Edition/dp/027372889X' target='_blank'>available on Amazon</a>)
+					<br />About this book: An advanced undergraduate textbook for a course dedicated to the study of graph theory.
+					</p>
+					<br />
+
+					<p><strong><u>Wikipedia</u></strong></p>
+				</section>
+
+				<section>
+					<h3>Jeff Erickson's Algorithms notes</h3>
+
+					<img src='http://ws.engr.illinois.edu/directory/viewphoto/50176/240' style='float: right'/>
+					<p>These notes provided some of the backbone of this class. Some definitions and examples in these slides were taken directly from these notes. Many thanks to Jeff for making his not-a-textbook an available resource.</p>
+					<br />
+
+					<a href='http://www.cs.illinois.edu/~jeffe/teaching/algorithms' target='_blank'>
+						http://www.cs.illinois.edu/~jeffe/teaching/algorithms
+					</a>
+
+				</section>
+
+
                 <section>
-                    <h3>Let's Develop It</h3>
-                    <p>Task instructions might go here</p>
-                    <p><span class="green">BONUS</span>: Finished early? Try this.</p>
-                    <pre class="fragment"><code contenteditable class="javascript">
-    Code solution might go here
-                    </code></pre>
-                </section>
-                <section>
-                    <h2>Stretch break!</h2>
-                    <img src="img/cat_stretch.jpg" alt="kitty!" />
-                </section>
-                <!-- End of class -->
-                <section>
-                    <h3>Summary</h3>
-                    <ul>
-                        <li>Intro</li>
-                        <li>Exercise</li>
-                        <li>Stretch break</li>
-                        <li>Wrap up</li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Homework (optional)</h3>
-                    <ol>
-                        <li>Describe a next-level homework task for students to tackle</li>
-                        <li>Be sure to include solutions to this and all exercises, including bonus items.</li>
-                    </ol>
-                    <p><br />Don't feel you need to finish this right away! Check into #[slack-room-name] for follow-up and questions.</p>
-                </section>
-                <section>
-                    <h3>What next?</h3>
-                    <ol>
-                        <li><a href="http://www.meetup.com/Girl-Develop-It-Philadelphia/pages/Suggested_Course_Sequences/" target="_blank">Suggested class sequences</a></li>
-                        <li>Valuable resources</li>
-                        <li>Other upcoming GDI classes/events</li>
-                    </ol>
-                </section>
+				<h3>Take another GDI Class!</h3>
+					<p>With Algorithms in your brain, the world is your oyster!  Check out the <a href="http://www.meetup.com/Girl-Develop-It-Philadelphia/pages/Suggested_Course_Sequences/" target="_blank">Suggested class sequences</a> on our Meetup.</p>
+				</section>
+
                 <section>
                     <h3>Get Involved</h3>
                     <ol>
@@ -461,17 +1266,17 @@
                         <li>Teach something</li>
                         <li>Mentor or be mentored</li>
                     </ol>
-                    <p><a href="http://www.meetup.com/Girl-Develop-It-Philadelphia/pages/Get_Involved/" target="_blank">All forms here</a></p>
+                    <p><a href="http://www.meetup.com/Girl-Develop-It-Philadelphia/pages/Get_Involved/" target="_blank">All forms here</a> (on Meetup) </p>
                 </section>
                 <section>
-                    <h3>Survey</h3>
+					<h3>Thank you for attending!</h3>
                     <p>We value your feedback and are always trying to improve.</p>
-                    <p><a href="" target="_blank">survey link here</a></p>
+					<div><a target="_blank" href="http://bit.ly/algorithms-survey">http://bit.ly/algorithms-survey</a></div>
                 </section>
 			</div>
   		<footer>
         <div class="copyright">
-          Official class name here -- Philadelphia --
+          Intro to Algorithms -- Philadelphia --
           <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
         </div>
       </footer>
@@ -480,6 +1285,14 @@
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
+
+		<script>
+			$('script[type="text/vnd.graphviz"]').each(function(index, spec) {
+				var rendered = Viz(spec.innerHTML, 'svg');
+				$('#' + spec.getAttribute('id') + '_output').html(rendered);
+			});
+
+		</script>
 
 		<script>
 
