@@ -99,28 +99,14 @@
 	<script type="text/vnd.graphviz" id="recurse1">
 		graph R1 {
 			a [label=""]
-			a -- F_1
-			a -- c
-			c [label=""]
-			c -- F_2
-			c -- e
-			e [label=""]
-			e -- F_3
-			e -- F_4
-		}
-	</script>
-
-	<script type="text/vnd.graphviz" id="recurse2">
-		graph R2 {
-			a [label=""]
 			a -- b
 			b [label=""]
-			b -- F_1
-			b -- F_2
+			b -- Number_1
+			b -- Number_2
 			a -- e
 			e [label=""]
-			e -- F_3
-			e -- F_4
+			e -- Number_3
+			e -- Number_4
 		}
 	</script>
 	</head>
@@ -952,7 +938,7 @@ return false
 					<p>To solve a problem with recursion:</p>
 					<br />
 					<ul>
-						<li class='fragment'>You need to solve some sort of <strong>base case</strong>. This is often means solving the problem for an input of size 0 or 1.</li>
+						<li class='fragment'>You need to solve some sort of <strong>base case</strong>. This often means solving the problem for an input of size 0 or 1.</li>
 						<li class='fragment'>You need to divide up the problem into smaller parts and pass them to the recursion fairy.</li>
 						<li class='fragment'>You need to be able to use the results that the recursion fairy gives you.</li>
 						<li class='fragment'>Don't try to recurse over an infinite list of items.</li>
@@ -960,63 +946,60 @@ return false
 				</section>
 
 				<section>
-					<h3>Writing letters</h3>
-					<p>Suppose you had to write letters to \(n\) friends.</p>
-					<br/>
-					<p class='fragment'>You could solve this by looping (a.k.a. "iterative").</p>
+					<h3>Merge Sort, revisited</h3>
+					<p>Recall our human merge sort? We split into smaller and smaller groups, and then merged back together in a sorted order.</p>
 					<br />
-					<p class='fragment'>WriteLetter(Friend_1, Friend_2, ..., Friend_n):</p>
-					<pre class='fragment'><code>
-for i &larr; 1 to n
-    get a piece of paper and a pen and write to Friend_i
-					</code></pre>
+					<p class='fragment'>What you were actually doing is solving the sorting problem using <strong>recursion</strong>!</p>
 				</section>
 
 				<section>
-					<h3>Writing letters</h3>
+					<h3>Merge Sort, revisited</h3>
+					<p>When we had individual groups of size 1, that was our <strong>base case</strong>.</p>
 					<br />
-					<p>Alternately, you could solve by recursion.</p>
+					<p class='fragment'>When we looked at two already-sorted smaller lines, we were trusting that they were sorted because the recursion fairy knew how to properly sort them.</p>
 					<br />
-					<p class='fragment'>WriteLetter(Friend_1, Friend_2, ..., Friend_n):</p>
-					<pre class='fragment'><code>
-if n = 1
-	get a piece of paper and a pen and write to Friend_n
+					<p class='fragment'>We had a procedure to take the result from the recursion fairy and combine into a larger sorted list.</p>
+				</section>
+
+				<section>
+					<h3>Merge Sort, revisited</h3>
+					<p>MergeSort(Number_1, Number_2, ... Number_n):</p>
+					<pre><code>if n = 1
+    return (Number_1); &lang;&lang;Your list is already sorted&rang;&rang;
 else
-    WriteLetter(Friend_1)
-    and WriteLetter(Friend_2, ..., Friend_n)
+    &lang;&lang;Recursively sort two smaller lists&rang;&rang;
+    sorted_left_list = MergeSort(Number_1, Number_2, ... Number_n/2)
+    sorted_right_list = MergeSort(Number_(n/2 + 1), ... Number_n)
+
+    &lang;&lang;Merge the sorted sublists&rang;&rang;
+    final_list = new Array
+    while sorted_left_list and sorted_right_list are not empty
+       if first(sorted_left_list) &lt;= first(sorted_right_list)
+            remove first(sorted_left_list) from sorted_left_list
+            append first(sorted_left_list) to final_list
+       else
+            remove first(sorted_right_list) from sorted_right_list
+            append first(sorted_right_list) to final_list
+    return final_list
 					</code></pre>
 				</section>
 
 				<section>
-					<h3>Writing letters</h3>
-					<br />
-					<p>You can break the friends up in to different sized subproblems and still use recursion.</p>
-					<br />
-					<p class='fragment'>WriteLetter(Friend_1, Friend_2, ..., Friend_n):</p>
-					<pre class='fragment'><code>
-if n = 1
-	get a piece of paper and a pen and write to Friend_n
-else
-    WriteLetter(Friend_1, ..., Friend_(n/2))
-    and WriteLetter(Friend_(n/2 + 1), ..., Friend_n)
-					</code></pre>
-				</section>
-
-				<section>
-					<h3>Writing letters</h3>
-					<br/>
-					<p>What's the difference in these two ways of splitting up the problem to recurse?</p>
+					<h3>Merge Sort, Revisited</h3>
+					<p>This tree represents how we tackled sorting with merge sort. We started at the top, divided into two until we reached our base case, and then traveled back up the tree merging lists back together.</p>
 					<br/>
 					<div class='fragment'>
 						<span id="recurse1_output"></span>
-						<span id="recurse2_output"></span>
 					</div>
+					<br/>
+					<p class='fragment'><small>Fun fact: the height of this tree of n vertices is log n! This is part of why the run time of Merge Sort is O(n log n).</small></p>
 				</section>
 
 				<section>
 					<h3>Recursion vs. Iteration</h3>
+					<p>Many problems with recursive solutions can also be solved without recursion, usually by <strong>looping</strong> or <strong>iterating</strong>.
 					<br />
-					<p>People often debate which is better for problem solving: recursion or iteration (looping). The short answer is...</p>
+					<p class='fragment'>People often debate which is better for problem solving: recursion or iteration. The short answer is...</p>
 					<br />
 					<div class='fragment'>There is no one right answer.</p>
 				</section>
