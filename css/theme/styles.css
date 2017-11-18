@@ -11,3 +11,35 @@ section#selectors p span {width:72%;}
 section#selectors p span.blue {width: 28%;}
 section#creating p span.blue {width: 43%;}
 section#reading p span.blue {width: 43%;}
+
+.reveal ol,
+.reveal ul {
+	display: inline-block;
+
+	text-align: left;
+	margin: 0 0 0 1em;
+}
+ 
+.reveal ol {
+	list-style-type: decimal;
+}
+ 
+.reveal ul {
+	list-style-type: disc;
+}
+ 
+.reveal ul ul {
+ 	list-style-type: square;
+}
+ 
+.reveal ul ul ul {
+	list-style-type: circle;
+}
+ 
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+	display: block;
+	margin-left: 40px;
+}
