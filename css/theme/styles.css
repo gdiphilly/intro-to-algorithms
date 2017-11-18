@@ -12,6 +12,19 @@ section#selectors p span.blue {width: 28%;}
 section#creating p span.blue {width: 43%;}
 section#reading p span.blue {width: 43%;}
 
+/* For some reason reveal.css got rid of a bunch of styles that 
+ * we depended on. Put them back here in our custom style sheet */
+
+.reveal strong,
+.reveal b {
+	font-weight: bold;
+}
+
+.reveal em,
+.reveal i {
+	font-style: italic;
+}
+
 .reveal ol,
 .reveal ul {
 	display: inline-block;
@@ -76,3 +89,26 @@ section#reading p span.blue {width: 43%;}
  	   -moz-box-sizing: border-box;
  	        box-sizing: border-box;
  }
+
+.reveal small {
+	display: inline-block;
+	font-size: 0.6em;
+	line-height: 1.2em;
+	vertical-align: top;
+}
+.reveal small * {
+	vertical-align: top;
+}
+
+.reveal img,
+.reveal video {
+	max-width: 95%;
+	max-height: 95%;
+}
+
+.reveal sup {
+	vertical-align: super;
+}
+.reveal sub {
+	vertical-align: sub;
+}
